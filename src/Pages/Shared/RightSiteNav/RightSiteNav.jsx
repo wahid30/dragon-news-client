@@ -10,6 +10,7 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 import ListGroup from "react-bootstrap/ListGroup";
+import BrandCarousel from "../BrandCarousel/BrandCarousel";
 
 const RightSideNav = () => {
   return (
@@ -42,7 +43,9 @@ const RightSideNav = () => {
           <ListGroup.Item className="mb-2">Vestibulum at eros</ListGroup.Item>
         </ListGroup>
       </div>
-      <div></div>
+      <div>
+        <BrandCarousel></BrandCarousel>
+      </div>
     </div>
   );
 };
