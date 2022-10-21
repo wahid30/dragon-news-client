@@ -1,9 +1,9 @@
 import React from "react";
 
 const NewsSummaryCard = ({ news }) => {
-  const { author } = news;
+  const { author, details, title } = news;
 
-  return <div></div>;
+  return <div>{title}</div>;
 };
 
 export default NewsSummaryCard;
