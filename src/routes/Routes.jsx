@@ -12,6 +12,9 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: async () => {
+          return fetch("http://localhost:5000/news");
+        },
       },
       {
         path: "/category/:id",
