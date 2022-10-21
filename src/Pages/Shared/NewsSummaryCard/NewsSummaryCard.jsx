@@ -12,7 +12,17 @@ const NewsSummaryCard = ({ news }) => {
       </div>
       <div>
         <Card>
-          <Card.Header>Featured</Card.Header>
+          <Card.Header className="d-flex ">
+            <Image
+              roundedCircle
+              src={author.img}
+              style={{ height: "40px" }}
+            ></Image>
+            <div>
+              <p className="mb-0">{author.name}</p>
+              <p>{author.published_date}</p>
+            </div>
+          </Card.Header>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Image fluid src={image_url}></Image>
