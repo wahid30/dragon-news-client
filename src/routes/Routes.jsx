@@ -26,6 +26,9 @@ export const routes = createBrowserRouter([
       {
         path: "/news/:id",
         element: <News></News>,
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:5000/news/${params.id}`);
+        },
       },
     ],
   },
