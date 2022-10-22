@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithPopup,
@@ -21,6 +22,10 @@ const AuthProvider = ({ children }) => {
       .catch((e) => console.log(e));
   };
 
+  const registerApp = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
@@ -31,7 +36,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, GoogleSingInContext, logOut };
+  const authInfo = { user, GoogleSingInContext, logOut, registerApp };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
