@@ -9,7 +9,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import LeftSiteNav from "../LeftSiteNav/LeftSiteNav";
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut();
+  };
   return (
     <Navbar
       className="mb-4"
@@ -27,23 +30,31 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">All News</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link>All News</Nav.Link>
+            <Nav.Link>Pricing</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item>Action</NavDropdown.Item>
+              <NavDropdown.Item>Another action</NavDropdown.Item>
+              <NavDropdown.Item>Something</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <NavDropdown.Item>Separated link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">{user.displayName}</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link>
+              {user?.uid ? (
+                <>
+                  <span>{user?.displayName}</span>
+                  <button onClick={handleLogOut}>Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/register">Register</Link>
+                </>
+              )}
+            </Nav.Link>
+            <Nav.Link eventKey={2}>
               {user?.photoURL ? (
                 <Image
                   style={{ height: "40px" }}
