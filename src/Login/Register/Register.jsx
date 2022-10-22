@@ -15,6 +15,7 @@ const Register = () => {
 
     registerApp(email, password)
       .then(() => {
+        form.reset();
         alert("Success!");
       })
       .catch((error) => console.log(error));
