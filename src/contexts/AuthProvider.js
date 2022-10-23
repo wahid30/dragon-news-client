@@ -18,17 +18,17 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    signOut(auth)
+    return signOut(auth)
       .then(() => {})
       .catch((e) => console.log(e));
   };
 
   const registerApp = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const singIn = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   useEffect(() => {
