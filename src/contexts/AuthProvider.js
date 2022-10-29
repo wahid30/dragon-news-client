@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const GoogleSingInContext = (provider) => {
-    signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider);
   };
 
   const logOut = () => {

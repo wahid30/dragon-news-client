@@ -4,9 +4,10 @@ import NewsSummaryCard from "../Shared/NewsSummaryCard/NewsSummaryCard";
 
 const Home = () => {
   const allNews = useLoaderData();
+  // console.log(allNews);
   return (
     <div>
-      {allNews.map((news) => (
+      {allNews?.map((news) => (
         <NewsSummaryCard key={news._id} news={news}></NewsSummaryCard>
       ))}
     </div>
