@@ -3,9 +3,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 const Login = () => {
   const { singIn } = useContext(AuthContext);
   const [error, setError] = useState("");
+
+  useTitle("Login");
+
   const navigate = useNavigate();
 
   const location = useLocation();
